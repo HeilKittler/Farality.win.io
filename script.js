@@ -1,4 +1,4 @@
-// Navbar scroll effect
+
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Smooth scrolling
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -22,7 +22,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for fade-in animations
+
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -37,7 +37,6 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-// Observe feature cards
 document.querySelectorAll('.feature-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
@@ -45,7 +44,7 @@ document.querySelectorAll('.feature-card').forEach(card => {
     observer.observe(card);
 });
 
-// Observe stat cards
+
 document.querySelectorAll('.stat-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
@@ -53,7 +52,7 @@ document.querySelectorAll('.stat-card').forEach(card => {
     observer.observe(card);
 });
 
-// Observe compatibility items
+
 document.querySelectorAll('.compat-item').forEach(item => {
     item.style.opacity = '0';
     item.style.transform = 'translateY(30px)';
@@ -61,7 +60,7 @@ document.querySelectorAll('.compat-item').forEach(item => {
     observer.observe(item);
 });
 
-// Counter animation for stats
+
 function animateCounter(element, target, duration = 2000) {
     const start = 0;
     const increment = target / (duration / 16);
@@ -78,7 +77,7 @@ function animateCounter(element, target, duration = 2000) {
     }, 16);
 }
 
-// Trigger counter animation when stats section is visible
+
 const statsObserver = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
@@ -86,7 +85,7 @@ const statsObserver = new IntersectionObserver(function(entries) {
             const numbers = entry.target.querySelectorAll('.stat-number');
             numbers.forEach(num => {
                 const text = num.textContent.trim();
-                // Only animate pure numbers
+
                 if (!isNaN(text.replace(/,/g, ''))) {
                     const target = parseInt(text.replace(/,/g, ''));
                     animateCounter(num, target);
@@ -101,7 +100,7 @@ if (statsSection) {
     statsObserver.observe(statsSection);
 }
 
-// Add parallax effect to floating shapes
+
 window.addEventListener('mousemove', function(e) {
     const shapes = document.querySelectorAll('.shape');
     const mouseX = e.clientX / window.innerWidth;
@@ -115,9 +114,9 @@ window.addEventListener('mousemove', function(e) {
     });
 });
 
-// Prevent default link behavior for demo links
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Add loading state to buttons
+
     const buttons = document.querySelectorAll('.btn');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
